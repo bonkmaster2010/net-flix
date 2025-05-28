@@ -1,0 +1,62 @@
+
+.PageNotFound{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    image-rendering: auto;
+}
+
+.PageNotFound h1, p{
+    margin: 0px;
+}
+
+.PageNotFound h1{
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.PageNotFound button{
+    background-color: white;
+    color: black;
+    width: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.PageNotFound button:hover{
+    background-color: rgb(216, 216, 216);
+}
+
+.NSES-404{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+#meSad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+#meSad img{
+    width: 30px;
+    height: 30px;
+}
+
+#NSES-404p{
+    margin-bottom: 20px;
+    font-size: 18px;
+}

@@ -1,0 +1,90 @@
+body{
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.fav-main-cont, .query-main-cont{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.fav-cont, .query-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px;
+    padding-top: 100px;
+}
+
+.fav-cont h1{
+    margin: 0px;
+}
+
+.fav-chunk, .query-chunk{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+#noFavs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 26px;
+    opacity: 0.7;
+}
+
+#noFavs img{
+    width: 30px;
+    height: 30px;
+}
+
+/* GenreContent Section cuz im not making a sperate file for two classes 😝  */
+.GC-title{
+  text-align: center;
+}
+
+.load-more {
+  background-color: #e50914;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.load-more:hover{
+  background-color: #bd0912; 
+}
+
+
+@media (min-width: 421px){
+  .fav-chunk, .query-chunk {
+    grid-template-columns: repeat(1, 300px);
+  }
+}
+
+
+@media (min-width: 724px) and (max-width: 1013px) {
+  .fav-chunk, .query-chunk {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (min-width: 1014px) {
+  .fav-chunk, .query-chunk {
+    grid-template-columns: repeat(3, 300px);
+  }
+}
