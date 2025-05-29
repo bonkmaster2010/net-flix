@@ -82,7 +82,7 @@ function Popular({
             {/* Genre Sections */}
             <Pop genre="Action" data={popularData} id={28} addToList={addToList} setAddToList={setAddToList} />
             <Pop genre="Comedy" data={popularData} id={35} addToList={addToList} setAddToList={setAddToList} />
-            <Pop genre="Drama" data={popularData} id={18} addToList={addToList} setAddToList={setAddToList} />
+            <Pop genre="Mystery" data={popularData} id={9648} addToList={addToList} setAddToList={setAddToList} />
             <Pop genre="Thriller" data={popularData} id={53} addToList={addToList} setAddToList={setAddToList} />
             <Pop genre="Science Fiction" data={popularData} id={878} addToList={addToList} setAddToList={setAddToList} />
             <Pop genre="Adventure" data={popularData} id={12} addToList={addToList} setAddToList={setAddToList} />

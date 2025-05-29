@@ -71,7 +71,12 @@ async function popular(page: number = 1) {
         isTitleClean(movie.title) &&
         (!movie.original_title || isTitleClean(movie.original_title))
       );
-      return filteredResults;
+      const uniqueMovies = filteredResults.filter(
+      (movie: any, index: number, self: any) =>
+       index === self.findIndex((m: any) => m.id === movie.id)
+      );
+
+      return uniqueMovies;
     } catch (err) {
       alert(err);
       return [];
