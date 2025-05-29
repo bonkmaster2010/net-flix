@@ -5,7 +5,6 @@ import GenreCard from './comps/GenreCard';
 import Footer from './comps/footer';
 import useRandom from './Hooks/RandomStore';
 import useMainStore from './Hooks/MainStore';
-import { useLoaderData, useLocation } from 'react-router';
 import { useDebounce } from 'use-debounce';
 import { useState, useEffect } from 'react';
 import { popular, modals } from './functions/fetchingFN';
@@ -33,9 +32,6 @@ function App() {
   const [debounceQuery] = useDebounce(query, 500)
   const {addToList, setAddToList, MT, setMT, genres, setGenres, age, setAge, cast, setCast } = useMainStore();
   const {popularData, setPopularData, show, setLoading, setFavs} = useRandom();
-  const { pathname } = useLocation();
-
-    useEffect(() => {window.scrollTo(0, 0);}, [pathname]);
     
     useEffect(() => {
       const responses = async () => {
