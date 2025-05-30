@@ -1,5 +1,4 @@
 import useLogin from "../Hooks/LoginStore";
-import useRandom from "../Hooks/RandomStore";
 import Netflix from '../images/banner3.png';
 import bg from '../images/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv.jpg';
 import { submit } from "../functions/loginFNS";
