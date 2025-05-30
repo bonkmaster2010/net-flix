@@ -8,12 +8,13 @@ interface store{
     page: number,
     genreTitle: string,
     
-
+    
     setGenreTitle: (title: string) => void,
     setLoading: (lodaing: boolean) => void,
     setShow: (show: boolean) => void,
     setPopularData: (arr: any) => void,
     setFavs: (movieOrUpdater: any | ((prev: any[]) => any[])) => void,
+    resetFavs: () => void,
     removeFav: (id: number) => void
     setPage: () => void;
 }
@@ -39,7 +40,7 @@ const useRandom = create<store>((set, get) => {
         set({ favs: [...favs, movieOrUpdater]});
         }
 },
-
+      resetFavs: () => set({favs: []}),
       removeFav: (id: number) => {
       set((state) => ({
       favs: state.favs.filter((movie) => movie.id !== id)

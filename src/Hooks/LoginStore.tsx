@@ -8,7 +8,7 @@ interface loginIF {
   pfp: string | null;
   isLoggedIn: boolean;
 
-  setPfp: (pfp: any) => void; // ✅ Added this
+  setPfp: (pfp: any) => void;
   setUserName: (name: any) => void;
   setLoggedIn: () => void;
   setLogin: (username: string, password: string, email: string) => void;

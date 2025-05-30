@@ -8,9 +8,7 @@ interface MainStoreIF {
   genres: string[];
   age: string;
   cast: string[];
-  design: string;
   
-  setDesign: (type: string) => void;
   setAddToList: (value: number | null) => void;
   setDatas: (newData: any) => void;
   setMT: (value: string | null) => void;
@@ -28,9 +26,7 @@ const useMainStore = create<MainStoreIF>((set) => ({
   genres: [],
   age: '',
   cast: [],
-  design: "",
   
-  setDesign: (type: string) => set({design: type}),
   setAddToList: (value) => set({ addToList: value }),
   setDatas: (newData: any) => {
       set({datas: newData})

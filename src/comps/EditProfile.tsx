@@ -1,13 +1,16 @@
+import useRandom from "../Hooks/RandomStore";
 import useLogin from "../Hooks/LoginStore";
 import original from '../icons/netflixPfp.png';
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import '../styles/EditProfile.css'; 
 
 function EditProfile() {
     const [newname, setNewName] = useState<string>('');
     const [profilePic, setProfilePic] = useState<string>(original);
-
     const {username, pfp, setUserName, setPfp, logout} = useLogin();
+    const { setShow, resetFavs } = useRandom();
+    const navi = useNavigate();
 
     useEffect(() => {
         if (pfp) {
@@ -49,7 +52,12 @@ function handlePicChange(e: React.ChangeEvent<HTMLInputElement>) {
                 />
                 <button className="save-username" onClick={() => saveName(newname)}>Save</button>
             </div>
-            <button className="logout-btn" onClick={logout}>Log Out</button>
+            <button className="logout-btn" onClick={() => {
+                setShow(false);
+                resetFavs();              
+                navi('/')
+                logout();
+                }}>Log Out</button>
                 <input style={{display: "none"}} id="profilePicInput" type="file" accept="image/*" onChange={handlePicChange} />
             </div>
         </div>
