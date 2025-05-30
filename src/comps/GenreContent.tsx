@@ -3,6 +3,7 @@ import Footer from './footer';
 import useRandom from '../Hooks/RandomStore';
 import trailer from '../images/trailer.jpg';
 import sad from '../icons/sad.gif';
+import washing from '../icons/put-ur-dirty-shoes-in-my-washing-machine.gif';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { toggleModal, closeModal } from '../functions/OtherFns';
@@ -15,13 +16,10 @@ function GenreContent() {
   const [age, setAge] = useState<string>('');
   const [cast, setCast] = useState<string[]>([]);
 
-  const { favs, popularData, page, genreTitle, setPage, setPopularData, setFavs, removeFav, setLoading } = useRandom();
+  const { favs, popularData, page, loading, genreTitle, setPage, setPopularData, setFavs, removeFav, setLoading } = useRandom();
   const { genreParam } = useParams<{ genreParam: string }>();
   const genreId = genreParam ? Number(genreParam) : null;
-  const data =
-  genreId && Array.isArray(popularData) && popularData.length > 0
-    ? popularData.filter((movie: any) => movie.genre_ids.includes(genreId))
-    : [];
+  const data = genreId && Array.isArray(popularData) && popularData.length > 0 ? popularData.filter((movie: any) => movie.genre_ids.includes(genreId)).filter((movie, index, self) =>index === self.findIndex((m) => ( m.id === movie.id))) : [];
   
   useEffect(() => {
   const fetchData = async () => {
@@ -34,11 +32,6 @@ function GenreContent() {
   fetchData();
 }, [page]);
 
- 
-  console.log(genreParam);
-  console.log(genreId);
-  console.log(data);
-
    return (
     <>
     <div className="fav-main-cont">
@@ -48,7 +41,8 @@ function GenreContent() {
           <p id="noFavs">
             its empty in here <img src={sad} alt="sad emoji" />
           </p>
-        )}
+         )}
+      {data.length <= 0 && loading && <p className='loading'>Fetching please be patient... <img src={washing} alt="put your dirty shoes in my washing machine gif"/></p>}
         <div className="fav-chunk">
          {data.length > 0 &&
             data.map((movie: any) => (
@@ -94,6 +88,8 @@ function GenreContent() {
                       age={age || 'N/A'}
                       desc={movie.overview || 'N/A'}
                       cast={cast.length ? cast.join(', ') : 'N/A'}
+                      movie={movie}
+                      id={movie.id}
                       click={() => {
                         const data = closeModal(popularData, movie.id);
                         setPopularData(data);

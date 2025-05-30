@@ -7,6 +7,8 @@ interface store{
     popularData: any[],
     page: number,
     genreTitle: string,
+    
+
     setGenreTitle: (title: string) => void,
     setLoading: (lodaing: boolean) => void,
     setShow: (show: boolean) => void,
@@ -24,6 +26,7 @@ const useRandom = create<store>((set, get) => {
         popularData: [],
         page: 3,
         genreTitle: '',
+
         setGenreTitle: (title: string) => {set({genreTitle: title})},
         setShow: (show: boolean) => set({ show }),
         setLoading: (loading: boolean) => set({ loading }),

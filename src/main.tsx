@@ -6,6 +6,7 @@ import Favs from './comps/Favs.tsx';
 import GenreContent from './comps/GenreContent.tsx';
 import Layout from './comps/Layout.tsx';
 import PageNotFound from './comps/404.tsx';
+import EditProfile from './comps/EditProfile.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
     <Route element={<Layout/>}>
       <Route path='/' element={<App/>}/>
       <Route path='/favs' element={<Favs/>}/>
+      <Route path='/profile' element={<EditProfile/>}/>
       <Route path='/genres/:genreParam' element={<GenreContent/>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Route>

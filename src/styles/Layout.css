@@ -61,6 +61,10 @@ nav a:hover::after {
     width: 100%;
 }
 
+nav a:focus{
+    color: red;
+}
+
 nav img{
     width: 100px;
     margin-right: 5px;

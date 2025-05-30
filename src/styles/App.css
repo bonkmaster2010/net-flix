@@ -15,7 +15,6 @@ html, body, #root {
 }
 
 /* ========== Global Styles ========== */
-
  .main-cont {
   display: flex;
   flex-direction: column;
@@ -54,7 +53,7 @@ html, body, #root {
   font-weight: 600;
   width: fit-content;
   padding: 10px 15px;
-  border: 1px solid white;
+  border: 1px solid #000;
   border-radius: 20px;
   font-size: 14px;
   display: flex;
@@ -67,7 +66,7 @@ html, body, #root {
 }
 
 .add-to-list:hover{
-  background-color: #202020;
+  border: 1px solid white;
 }
 
 .add-to-list .plus {

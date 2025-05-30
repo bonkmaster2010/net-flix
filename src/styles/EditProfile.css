@@ -1,0 +1,138 @@
+
+
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    gap: 20px;
+    height: 100vh;
+    max-width: 400px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.profile-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #141414;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.profile-user{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.profile-img {
+    padding: 15px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #e50914; 
+}
+
+.edit-username {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.edit-username input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-username input::placeholder {
+    color: #bbb;
+}
+
+.edit-username input:focus {
+    background-color: #444;
+}
+
+.save-username{
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-username:hover{
+    background-color: #f6121d;
+    box-shadow: 0 4px 12px rgba(246, 18, 29, 0.7);
+}
+
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e50914;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.5);
+    width: auto; 
+    letter-spacing: 1.5px;
+    min-width: 80px;
+    height: 36px; 
+}
+
+.upload-btn:hover {
+    background-color: #f6121d;
+    box-shadow: 0 4px 12px rgba(246, 18, 29, 0.7);
+}
+
+.upload-btn:active {
+    background-color: #b00710;
+    box-shadow: 0 1px 5px rgba(176, 7, 16, 0.7);
+}
+
+.logout-btn {
+  background-color: #e50914;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 24px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(229, 9, 20, 0.5);
+}
+
+.logout-btn:hover {
+  background-color: #f6121d;
+  box-shadow: 0 4px 12px rgba(246, 18, 29, 0.7);
+}
+
+.logout-btn:active {
+  background-color: #b00710;
+  box-shadow: 0 1px 5px rgba(176, 7, 16, 0.7);
+}

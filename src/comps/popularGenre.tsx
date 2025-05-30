@@ -71,6 +71,8 @@ function Pop({addToList, setAddToList, data, genre, id }: Props){
               age={age ? age : 'N/A'}
               genres={genres.join(", ") ? genres.join(", ") : 'N/A'}
               cast={Cast.join(", ") ? Cast.join(", ") : 'N/A'}
+              movie={movie}
+              id={movie.id}
             />
           )}
         </div>

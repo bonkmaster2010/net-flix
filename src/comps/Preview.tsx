@@ -60,7 +60,9 @@ function Preview({
                       age={age}
                       desc={preview?.overview}
                       cast={cast.join(", ")}
-         click={() => setPreview((prev: any) => closePreviewModal(prev, preview!.id))}
+                      movie={preview}
+                      id={preview?.id}
+                      click={() => setPreview((prev: any) => closePreviewModal(prev, preview!.id))}
               />
           )}
           </>

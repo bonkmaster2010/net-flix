@@ -16,7 +16,10 @@ body{
     justify-content: center;
     gap: 40px;
     padding: 50px;
-    padding-top: 100px;
+}
+
+.fav-cont{
+  padding-top: 80px;
 }
 
 .fav-cont h1{

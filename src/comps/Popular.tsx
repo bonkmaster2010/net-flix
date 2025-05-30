@@ -2,6 +2,7 @@ import Pop from "./popularGenre";
 import Modal from "./Modal";
 import useRandom from "../Hooks/RandomStore";
 import trailer from '../images/trailer.jpg';
+import washing from '../icons/put-ur-dirty-shoes-in-my-washing-machine.gif';
 import { toggleModal, closeModal } from "../functions/OtherFns";
 import '../styles/Query.css' 
 
@@ -23,7 +24,7 @@ function Popular({
     const { removeFav, favs, loading } = useRandom();
     return (
         <>
-            {Array.isArray(popularData) && loading && <p className='loading'>Fetching please be patient...</p>}
+            {Array.isArray(popularData) && loading && <p className='loading'>Fetching please be patient... <img src={washing} alt="put your dirty shoes in my washing machine gif"/></p>}
             <h1 className="genre-name">Popular on Netflix</h1>
             <div className="movie-cont">
               {popularData.length > 0 && popularData.map((movie: any) => (
@@ -69,6 +70,8 @@ function Popular({
                       age={age ? age : 'N/A'}
                       desc={movie.overview ? movie.overview : 'N/A'}
                       cast={cast.join(", ") ? cast.join(", ") : 'N/A'}
+                      movie={movie}
+                      id={movie.id}
                       click={() => {
                         const Data = closeModal(popularData, movie.id);
                         setPopularData(Data);

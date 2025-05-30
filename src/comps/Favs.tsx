@@ -3,7 +3,7 @@ import useRandom from '../Hooks/RandomStore';
 import trailer from '../images/trailer.jpg'
 import sad from '../icons/sad.gif'
 import { toggleModal, closeModal } from '../functions/OtherFns';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/favs.css'
 
 
@@ -14,9 +14,7 @@ function Favs() {
   const [genres, setGenres] = useState<string[]>([]);
   const [age, setAge] = useState<string>('');
   const [cast, setCast] = useState<string[]>([]);
-
-  useEffect(() => console.log(favs), [])
-
+  const [activeMovie, setActiveMovie] = useState<any | null>(null)
   return (
     <>
     <div className='fav-main-cont'>
@@ -34,7 +32,10 @@ function Favs() {
               >     
              
                 <img
-                  onClick={() => setFavs(((prev: any) => toggleModal(prev, movie.id, setMT, setGenres, setAge, setCast)))}
+                  onClick={() => {
+                    setActiveMovie(movie);
+                    setFavs(((prev: any) => toggleModal(prev, movie.id, setMT, setGenres, setAge, setCast)))}
+                  }
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                 />
@@ -48,29 +49,32 @@ function Favs() {
                   </button>
                 </div>
                 }
-
-                {movie.modal && (
-                  <Modal
-                    type={MT ? 'iframe' : 'img'}
-                    class={MT ? "MT" : "trailer-fallback"}
-                    src={MT ? MT : trailer}
-                    img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title ? movie.title : 'N/A'}
-                    title={movie.title ? movie.title : 'N/A'}
-                    date={movie.release_date ? movie.release_date : 'N/A'}
-                    genre={genres[0] ? genres[0] : 'N/A'}
-                    genres={genres.join(", ") ? genres.join(", ") : 'N/A'}
-                    age={age ? age : 'N/A'}
-                    desc={movie.overview ? movie.overview : 'N/A'}
-                    cast={cast.join(", ") ? cast.join(", ") : 'N/A'}
-                    click={() => setFavs((prev: any) => closeModal(prev, movie.id))}
-                  />
-                )}
-          
           </div>
         </div>
       ))}
-        
+              {activeMovie && (
+                <Modal
+                  id={activeMovie.id}
+                  movie={activeMovie}
+                  img={`https://image.tmdb.org/t/p/w500${activeMovie.poster_path}`}
+                  alt={activeMovie.title}
+                  title={activeMovie.title}
+                  date={activeMovie.release_date}
+                  genre={genres[0] || 'N/A'}
+                  genres={genres.join(", ") || 'N/A'}
+                  age={age || 'N/A'}
+                  desc={activeMovie.overview || 'N/A'}
+                  cast={cast.join(", ") || 'N/A'}
+                  type={MT ? 'iframe' : 'img'}
+                  class={MT ? "MT" : "trailer-fallback"}
+                  src={MT || trailer}
+                  click={() => {
+                    setFavs((prev: any) => closeModal(prev, activeMovie.id));
+                    setActiveMovie(null);
+                  }}
+                />
+              )}
+
         </div>
         </div>
       </div>

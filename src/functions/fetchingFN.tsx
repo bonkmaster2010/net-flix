@@ -51,7 +51,7 @@ async function ageAndGenre(id: number) {
   };
 const BANNED_KEYWORDS = [
   'cock', 'dick', 'penis', 'sex', 'porn', 'xxx', 'adult', 'erotic', 
-  'massive', 'big', 'huge', 'fuck', 'anal', 'blowjob', 'nsfw', "stepmom", "stepdad"
+  'massive', 'big', 'huge', 'fuck', 'anal', 'blowjob', 'nsfw', "stepmom", "stepdad", "Sikandar"
 ];
 
 function isTitleClean(title: string) {

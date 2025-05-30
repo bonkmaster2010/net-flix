@@ -1,14 +1,19 @@
+import useRandom from '../Hooks/RandomStore';
+import N from '../icons/N.png';
+import { closeModal } from '../functions/OtherFns';
 import '../styles/Modal.css';
 
 function Modal(props: any){
-  
-    return (<div className="overlay">
-      
+
+    const { setFavs, removeFav, favs } = useRandom();
+    
+    return (
+    <div className="overlay">  
             <div className='modal-bg' style={{background: `url(${props.img})`}}></div>
             <div className='modal-bg-color'></div>
 
          <div className="modal">
-            <button onClick={props.click} className='modal-close'>&times;</button>
+            <button onClick={props.click} className='modal-close'><img className='modal-close-icon' src={N} alt='netflix N icon'/></button>
           <props.type className={props.class} src={props.src} allowFullScreen></props.type>
            
             <div className="info">
@@ -24,6 +29,20 @@ function Modal(props: any){
              
              <div className="desc">
                 <p>{props.desc}</p>
+             </div>
+
+             <div className='desc-btn-cont'>
+                 {!favs.some(m => m.id === props.id) ? <button className='add-to-list'  onClick={() => {
+                    setFavs(props.movie);
+                    setFavs((prev: any) => closeModal(prev, props.movie.id));
+                 }}>
+                    My List
+                    <span className='plus'>+</span>
+                    </button> : <button className="add-to-list"  onClick={() => removeFav(props.id)}>
+                      My List 
+                      <span className="plus">-</span>
+                    </button>
+                    }  
              </div>
             </div>
                 <h2 id='MD'>More Details</h2>
