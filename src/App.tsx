@@ -9,7 +9,7 @@ import useMainStore from './Hooks/MainStore';
 import useLogin from './Hooks/LoginStore';
 import { useDebounce } from 'use-debounce';
 import { useState, useEffect } from 'react';
-import { popular, modals } from './functions/fetchingFN';
+import { popular, modals, isTitleClean } from './functions/fetchingFN';
 import GBG from './images/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv.jpg';
 import shy from './icons/shy_joe.png';
 import mad from './icons/joegub.gif';
@@ -63,7 +63,12 @@ function App() {
           `https://api.themoviedb.org/3/search/movie?api_key=8f6011079947e4a258ab7e8d518e9f15&query=${debounceQuery}&include_adult=false`
         );
         const data = await res.json();
-        const modaled = modals(data.results);
+        let filtered = data.results.filter((movie: any) => 
+          isTitleClean(movie.title) && 
+          isTitleClean(movie.original_title) &&
+          isTitleClean(movie.overview)
+        )
+        const modaled = modals(filtered);
         setOriginalDatas(modaled);
         setDatas(modaled);
       } catch (err) {
@@ -85,7 +90,6 @@ function App() {
   const overview = preview?.overview || '...';
   const shortOverview = overview.length > 80 ? overview.slice(0, 80) + '...' : overview;
 
-  // **Redirect to Login if NOT logged in**
   if (!isLoggedIn) {
     return <Login />;
   }

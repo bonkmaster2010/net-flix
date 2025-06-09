@@ -51,8 +51,18 @@ async function ageAndGenre(id: number) {
   };
 const BANNED_KEYWORDS = [
   'cock', 'dick', 'penis', 'sex', 'porn', 'xxx', 'adult', 'erotic', 
-  'massive', 'big', 'huge', 'fuck', 'anal', 'blowjob', 'nsfw', "stepmom", "stepdad", "Sikandar"
-];
+  'massive', 'big', 'huge', 'fuck', 'anal', 'blowjob', 'nsfw', 
+  'stepmom', 'stepdad', 'sikandar', 'footjob', 'pawg', 'threesome', 'bdsm',
+  'fetish', 'orgy', 'cum', 'creampie', 'hardcore', 'milf', 'blow job', 
+  'gangbang', 'lesbian', 'stripper', 'striptease', 'bondage', 'kink',
+  'bareback', 'twink', 'fisting', 'deepthroat', 'sex toys', 'intercourse',
+  'oral', 'voyeur', 'squirting', 'bukkake', 'creampie', 'domination', 'cuckold',
+  'bareback', 'titfuck', 'foot fetish', 'barely legal', 'barely 18', 'teen porn',
+  'pussy', 'clitoris', 'vagina', 'nipples', 'tits', 'boobs', 'asshole', 'butt',
+  'cumshot', 'masturbate', 'jerk off', 'handjob', 'orgasm', 'rape', 'incest',
+  'loli', 'pedo', 'bestiality', 'zoophilia', 'scat', 'gore', 'vomit',
+  'shemale', 'trap', 'transsexual', 'transgender', 'futanari', "nudes", "nude", "hot"
+];  // tryna keep it family friendly ok
 
 function isTitleClean(title: string) {
   const lowerTitle = title.toLowerCase();
